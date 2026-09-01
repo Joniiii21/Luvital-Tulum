@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atención Dental - Contacto & Reseñas</title>
+  <style>
+    /* Reset y estilos generales */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #f4f7f9;
+      color: #2c3e50;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 24px 16px;
+    }
+
+    /* Tarjeta contenedora */
+    .container {
+      width: 100%;
+      max-width: 380px;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 24px 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
+
+  /* Estilo del Logo */
+    .logo-img {
+      width: 120px;            /* Controla el ancho del logo */
+      height: 120px;           /* Controla la altura del logo */
+      object-fit: contain;    /* Evita que la imagen se distorsione */
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 1.35rem;
+      color: #0f4c81;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .subtitle {
+      font-size: 0.85rem;
+      color: #6c757d;
+      margin-bottom: 20px;
+    }
+
+    /* Sección Destacada: Reseña de Google */
+    .btn-featured {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 16px;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #1a73e8, #1557b0);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
+      transition: transform 0.2s;
+    }
+
+    /* Botones Secundarios */
+    .btn-secondary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 12px;
+      background-color: #ffffff;
+      color: #2c3e50;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      transition: all 0.2s;
+    }
+
+    /* Efectos al presionar */
+    .btn-featured:active, .btn-secondary:active {
+      transform: scale(0.98);
+    }
+    .btn-secondary:hover {
+      background-color: #f8fafc;
+      border-color: #cbd5e1;
+    }
+
+    /* Pie de página */
+    .footer-text {
+      margin-top: 16px;
+      font-size: 0.75rem;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Icono o Logo -->
+    <img src="logoluv.png" alt="logo clinica" class="logo-img">
+    <h1>Luvital</h1>
+    <p class="subtitle"> Enfocado en la salud dental de los Tulumenses</p>
+
+    <!-- Botón Principal: Reseña de Google (Lo que más le interesa al negocio) -->
+    <a href="https://g.page/r/CZT7aVdfVu5SEBM/review" target="_blank" class="btn-featured">
+      ⭐ Dejar Reseña en Google
+    </a>
+
+    <!-- Botón de Agendado Rápido -->
+    <a href="https://wa.me/9841873403?text=Hola,%20quisiera%20agendar%20una%20cita" target="_blank" class="btn-secondary">
+      💬 Agendar Cita por WhatsApp
+    </a>
+
+    <!-- Botón Ubicación -->
+    <a href="https://maps.app.goo.gl/9ZtXss2aP8SA1PSe9" target="_blank" class="btn-secondary">
+      📍 Cómo llegar (Google Maps)
+    </a>
+
+    <!-- Botón Catálogo o Menú de Servicios -->
+    <a href="https://www.instagram.com/luvitalconsultoriodental?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==" target="_blank" class="btn-secondary">
+      📸 Ver Casos & Tratamientoss
+    </a>
+
+    <p class="footer-text">Toca cualquiera de las opciones para ir directo</p>
+  </div>
+
+</body>
+</html>
