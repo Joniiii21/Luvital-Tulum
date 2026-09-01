@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Luvital - Contacto & Reseñas</title>
+  
+  <!-- Librería de Iconos Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <style>
     /* Reset y estilos generales */
     * {
@@ -33,11 +37,11 @@
       text-align: center;
     }
 
-  /* Estilo del Logo */
+    /* Estilo del Logo */
     .logo-img {
-      width: 120px;            /* Controla el ancho del logo */
-      height: 120px;           /* Controla la altura del logo */
-      object-fit: contain;    /* Evita que la imagen se distorsione */
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
       margin-bottom: 12px;
     }
 
@@ -91,6 +95,25 @@
       transition: all 0.2s;
     }
 
+    /* Estilos específicos para los iconos dentro de los botones */
+    .btn-featured i, .btn-secondary i {
+      font-size: 1.15rem;
+    }
+    
+    /* Colores personalizados para los iconos */
+    .fa-star {
+      color: #fbbc04; /* Color dorado para las estrellas */
+    }
+    .fa-whatsapp {
+      color: #25d366; /* Verde oficial WhatsApp */
+    }
+    .fa-location-dot {
+      color: #ea4335; /* Rojo oficial Google Maps */
+    }
+    .fa-instagram {
+      color: #e1306c; /* Rosado oficial Instagram */
+    }
+
     /* Efectos al presionar */
     .btn-featured:active, .btn-secondary:active {
       transform: scale(0.98);
@@ -108,34 +131,33 @@
     }
   </style>
 </head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <body>
 
   <div class="container">
-    <!-- Icono o Logo -->
+    <!-- Logo -->
     <img src="logoluv.png" alt="logo clinica" class="logo-img">
     <h1>Luvital</h1>
-    <p class="subtitle"> Enfocado en la salud dental de los Tulumenses</p>
+    <p class="subtitle">Enfocado en la salud dental de los Tulumenses</p>
 
-    <!-- Icono de Estrellas de Google -->
-<a href="https://maps.google.com/..." class="btn btn-google">
-  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> Dejar Reseña en Google
-</a>
+    <!-- Botón Reseña con Estrellas Doradas -->
+    <a href="https://g.page/r/CZT7aVdfVu5SEBM/review" target="_blank" class="btn-featured">
+      <i class="fa-solid fa-star"></i> Dejar Reseña en Google
+    </a>
 
-    <!-- Icono de WhatsApp -->
-<a href="https://wa.me/529841234567" class="btn btn-whatsapp">
-  <i class="fa-brands fa-whatsapp"></i> Contactar por WhatsApp
-</a>
+    <!-- Botón Agendar por WhatsApp -->
+    <a href="https://wa.me/529841873403?text=Hola,%20quisiera%20agendar%20una%20cita" target="_blank" class="btn-secondary">
+      <i class="fa-brands fa-whatsapp"></i> Agendar Cita por WhatsApp
+    </a>
 
-   <!-- Icono de Mapa / Ubicación -->
-<a href="https://maps.google.com/..." class="btn btn-maps">
-  <i class="fa-solid fa-location-dot"></i> Cómo Llegar (Ubicación)
-</a>
+    <!-- Botón Ubicación -->
+    <a href="https://maps.app.goo.gl/9ZtXss2aP8SA1PSe9" target="_blank" class="btn-secondary">
+      <i class="fa-solid fa-location-dot"></i> Cómo llegar (Google Maps)
+    </a>
 
-    <!-- Instagram / Menú de servicios -->
-  <a href="https://instagram.com/tu_usuario" class="btn btn-instagram" target="_blank">
-    <i class="fa-brands fa-instagram"></i> Menú de Servicios
-  </a>
+    <!-- Botón Instagram -->
+    <a href="https://www.instagram.com/luvitalconsultoriodental" target="_blank" class="btn-secondary">
+      <i class="fa-brands fa-instagram"></i> Ver Casos & Tratamientos
+    </a>
 
     <p class="footer-text">Toca cualquiera de las opciones para ir directo</p>
   </div>
