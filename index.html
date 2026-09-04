@@ -74,19 +74,23 @@
       background-color: #2563eb;
       color: #ffffff;
       border: none;
-      padding: 8px 16px;
+      padding: 9px 18px;
       border-radius: 8px;
       font-weight: 600;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 6px;
-      transition: background-color 0.2s, transform 0.1s;
+      transition: all 0.2s ease;
+      min-width: 160px;
+    }
+    .btn-wifi.copiado {
+      background-color: #16a34a;
     }
     .btn-wifi:active {
       transform: scale(0.96);
-      background-color: #1d4ed8;
     }
     .mensaje-oculto {
       display: none;
@@ -113,6 +117,12 @@
       border-radius: 14px;
       box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
       transition: transform 0.2s;
+    }
+
+    /* Contenedor de estrellas de Google */
+    .stars-group {
+      display: inline-flex;
+      gap: 2px;
     }
 
     /* Botones Secundarios */
@@ -155,6 +165,9 @@
     .fa-wifi {
       color: #2563eb; /* Azul Wi-Fi */
     }
+    .fa-address-card {
+      color: #0f4c81; /* Azul institucional */
+    }
 
     /* Efectos al presionar */
     .btn-featured:active, .btn-secondary:active {
@@ -184,15 +197,22 @@
     <!-- Bloque Wi-Fi -->
     <div class="wifi-card">
       <p><i class="fa-solid fa-wifi"></i> <strong>Wi-Fi Pacientes:</strong> IZZI-D9BA</p>
-      <button class="btn-wifi" onclick="copiarWifi()">
-        <i class="fa-regular fa-copy"></i> Copiar Contraseña
+      <button class="btn-wifi" id="btn-wifi-elem" onclick="copiarWifi()">
+        <i class="fa-regular fa-copy" id="icono-wifi"></i> <span id="texto-wifi">Copiar Contraseña</span>
       </button>
       <div id="mensaje-copiado" class="mensaje-oculto">¡Contraseña copiada al portapapeles!</div>
     </div>
 
-    <!-- Botón Reseña gogole -->
+    <!-- Botón Reseña Google con 5 Estrellas -->
     <a href="https://g.page/r/CZT7aVdfVu5SEBM/review" target="_blank" class="btn-featured">
-      <i class="fa-solid fa-star"></i> Dejar Reseña en Google
+      <span class="stars-group">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+      </span>
+      Dejar Reseña en Google
     </a>
 
     <!-- Botón Agendar por WhatsApp -->
@@ -210,25 +230,59 @@
       <i class="fa-brands fa-instagram"></i> Ver Casos & Tratamientos
     </a>
 
+    <!-- Botón Guardar Contacto -->
+    <a href="tel:+529841873403" class="btn-secondary">
+      <i class="fa-solid fa-address-card"></i> Guardar / Llamar al Consultorio
+    </a>
+
     <p class="footer-text">Toca cualquiera de las opciones para ir directo</p>
   </div>
 
-  <!-- funcion copiar contraseña -->
+  <!-- Función copiar contraseña interactiva -->
   <script>
     function copiarWifi() {
-      // Contraseña real
       const passwordReal = "vw7fpfsz"; 
-      
-      navigator.clipboard.writeText(passwordReal).then(() => {
-        const mensaje = document.getElementById("mensaje-copiado");
+      const btn = document.getElementById("btn-wifi-elem");
+      const icono = document.getElementById("icono-wifi");
+      const texto = document.getElementById("texto-wifi");
+      const mensaje = document.getElementById("mensaje-copiado");
+
+      function animarExito() {
+        btn.classList.add("copiado");
+        icono.className = "fa-solid fa-check";
+        texto.textContent = "¡Copiado!";
         mensaje.style.display = "block";
         
         setTimeout(() => {
+          btn.classList.remove("copiado");
+          icono.className = "fa-regular fa-copy";
+          texto.textContent = "Copiar Contraseña";
           mensaje.style.display = "none";
-        }, 3000);
-      }).catch(err => {
-        console.error('Error al copiar: ', err);
-      });
+        }, 2500);
+      }
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(passwordReal).then(animarExito).catch(fallbackCopy);
+      } else {
+        fallbackCopy();
+      }
+
+      function fallbackCopy() {
+        const textArea = document.createElement("textarea");
+        textArea.value = passwordReal;
+        textArea.style.position = "fixed";
+        textArea.style.left = "-999999px";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        try {
+          document.execCommand('copy');
+          animarExito();
+        } catch (err) {
+          console.error('Error al copiar: ', err);
+        }
+        document.body.removeChild(textArea);
+      }
     }
   </script>
 
