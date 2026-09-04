@@ -54,46 +54,7 @@
     .subtitle {
       font-size: 0.85rem;
       color: #6c757d;
-      margin-bottom: 20px;
-    }
-
-    /* Tarjeta Wi-Fi Pacientes */
-    .wifi-card {
-      background-color: #eef6ff;
-      border: 1px solid #bedbfe;
-      border-radius: 14px;
-      padding: 14px;
-      margin-bottom: 16px;
-    }
-    .wifi-card p {
-      font-size: 0.85rem;
-      color: #1e40af;
-      margin-bottom: 8px;
-    }
-    .btn-wifi {
-      background-color: #2563eb;
-      color: #ffffff;
-      border: none;
-      padding: 8px 16px;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.8rem;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: background-color 0.2s, transform 0.1s;
-    }
-    .btn-wifi:active {
-      transform: scale(0.96);
-      background-color: #1d4ed8;
-    }
-    .mensaje-oculto {
-      display: none;
-      font-size: 0.75rem;
-      color: #16a34a;
-      margin-top: 6px;
-      font-weight: 600;
+      margin-bottom: 24px;
     }
 
     /* Sección Destacada: Reseña de Google */
@@ -155,9 +116,6 @@
     .fa-facebook {
       color: #1877f2; /* Azul oficial Facebook */
     }
-    .fa-wifi {
-      color: #2563eb; /* Azul Wi-Fi */
-    }
 
     /* Efectos al presionar */
     .btn-featured:active, .btn-secondary:active {
@@ -183,15 +141,6 @@
     <img src="logoluv.png" alt="logo clinica" class="logo-img">
     <h1>Luvital</h1>
     <p class="subtitle">Enfocado en la salud dental de los Tulumenses</p>
-
-    <!-- Bloque Wi-Fi -->
-    <div class="wifi-card">
-      <p><i class="fa-solid fa-wifi"></i> <strong>Wi-Fi Pacientes:</strong> IZZI-D9BA</p>
-      <button class="btn-wifi" onclick="copiarWifi()">
-        <i class="fa-regular fa-copy"></i> Copiar Contraseña
-      </button>
-      <div id="mensaje-copiado" class="mensaje-oculto">¡Contraseña copiada al portapapeles!</div>
-    </div>
 
     <!-- Botón Reseña google -->
     <a href="https://g.page/r/CZT7aVdfVu5SEBM/review" target="_blank" class="btn-featured">
@@ -220,25 +169,6 @@
 
     <p class="footer-text">Toca cualquiera de las opciones para ir directo</p>
   </div>
-
-  <!-- funcion copiar contraseña -->
-  <script>
-    function copiarWifi() {
-      // Contraseña real
-      const passwordReal = "vw7fpfsz"; 
-      
-      navigator.clipboard.writeText(passwordReal).then(() => {
-        const mensaje = document.getElementById("mensaje-copiado");
-        mensaje.style.display = "block";
-        
-        setTimeout(() => {
-          mensaje.style.display = "none";
-        }, 3000);
-      }).catch(err => {
-        console.error('Error al copiar: ', err);
-      });
-    }
-  </script>
 
 </body>
 </html>
