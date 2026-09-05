@@ -16,28 +16,55 @@
       padding: 0;
     }
     body {
-      background-color: #f4f7f9;
+      background-color: #0f172a; /* Fondo oscuro de respaldo */
       color: #2c3e50;
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
       min-height: 100vh;
       padding: 24px 16px;
+      position: relative;
+      overflow-x: hidden;
     }
 
-    /* iconosd */
+    /* Estilo Video de Fondo */
+    .bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      filter: blur(5px) scale(1.05); /* Difuminado suave */
+    }
+
+    /* Capa oscura */
+    .bg-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.65); /* Oscurece para mejor lectura */
+      z-index: -1;
+    }
+
+    /* Efecto cristal */
     .container {
       width: 100%;
       max-width: 380px;
-      background: #ffffff;
+      background: rgba(255, 255, 255, 0.93); /* Blanco semi-transparente */
+      backdrop-filter: blur(10px);
       border-radius: 20px;
       padding: 24px 20px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
       text-align: center;
     }
 
-    /* tamaño0 del logo */
+    /* tamaño del logo */
     .logo-img {
       width: 120px;
       height: 120px;
@@ -105,16 +132,16 @@
       color: #fbbc04; /* amarillo estrellas */
     }
     .fa-whatsapp {
-      color: #25d366; /*  verde WhatsApp */
+      color: #25d366; /* verde WhatsApp */
     }
     .fa-location-dot {
       color: #ea4335; /* Rojo Google Maps */
     }
     .fa-instagram {
-      color: #e1306c; /* Rosado  Instagram */
+      color: #e1306c; /* Rosado Instagram */
     }
     .fa-facebook {
-      color: #1877f2; /* Azul  Facebook */
+      color: #1877f2; /* Azul Facebook */
     }
 
     /* Efectos al presionar */
@@ -130,11 +157,19 @@
     .footer-text {
       margin-top: 16px;
       font-size: 0.75rem;
-      color: #94a3b8;
+      color: #64748b;
     }
   </style>
 </head>
 <body>
+
+  <!-- Video loop defondo -->
+  <video autoplay loop muted playsinline class="bg-video">
+    <source src="vidloop.mp4" type="video/mp4">
+  </video>
+  
+  <!-- Capa oscura superpuesta -->
+  <div class="bg-overlay"></div>
 
   <div class="container">
     <!-- Logo -->
