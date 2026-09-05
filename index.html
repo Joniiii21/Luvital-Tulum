@@ -5,31 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Luvital - Contacto & Reseñas</title>
   
-  <!-- pagina de iconos -->
+  <!-- Pagina de iconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
-    /* Estilos  */
+    /* Estilos generales */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
     body {
-      background-color: #0f172a; /* Fondo oscuro de respaldo */
-      color: #2c3e50;
+      background-color: #0f172a;
+      color: #ffffff;
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       min-height: 100vh;
-      padding: 24px 16px;
+      padding: 32px 16px;
       position: relative;
       overflow-x: hidden;
     }
 
-    /* Estilo Video de Fondo */
+    /* Video de Fondo */
     .bg-video {
       position: fixed;
       top: 0;
@@ -38,53 +37,66 @@
       height: 100%;
       object-fit: cover;
       z-index: -2;
-      filter: blur(5px) scale(1.05); /* Difuminado suave */
+      filter: blur(3px) scale(1.03); /* Ligeramente difuminado */
     }
 
-    /* Capa oscura */
+    /* Capa oscura superpuesta */
     .bg-overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(15, 23, 42, 0.65); /* Oscurece para mejor lectura */
+      background: rgba(15, 23, 42, 0.55); /* Capa traslúcida para legibilidad */
       z-index: -1;
     }
 
-    /* Efecto cristal */
+    /* Contenedor central (Sin tarjeta contenedora fija) */
     .container {
       width: 100%;
       max-width: 380px;
-      background: rgba(255, 255, 255, 0.93); /* Blanco semi-transparente */
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      padding: 24px 20px;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    /* tamaño del logo */
+    /* Logo destacado con resplandor para no opacarse */
+    .logo-wrapper {
+      width: 130px;
+      height: 130px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      padding: 12px;
+    }
     .logo-img {
-      width: 120px;
-      height: 120px;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
-      margin-bottom: 12px;
     }
 
+    /* Encabezados claros sobre el video */
     h1 {
-      font-size: 1.35rem;
-      color: #0f4c81;
+      font-size: 1.6rem;
+      color: #ffffff;
       font-weight: 700;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
     }
     .subtitle {
-      font-size: 0.85rem;
-      color: #6c757d;
-      margin-bottom: 24px;
+      font-size: 0.9rem;
+      color: #e2e8f0;
+      margin-bottom: 28px;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+      font-weight: 500;
     }
 
-    /* Reseña de Google */
+    /* Botón Principal (Google) */
     .btn-featured {
       display: flex;
       align-items: center;
@@ -92,18 +104,18 @@
       gap: 10px;
       width: 100%;
       padding: 16px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       background: linear-gradient(135deg, #1a73e8, #1557b0);
       color: #ffffff;
       text-decoration: none;
       font-weight: 700;
       font-size: 0.95rem;
       border-radius: 14px;
-      box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
+      box-shadow: 0 6px 20px rgba(26, 115, 232, 0.4);
       transition: transform 0.2s;
     }
 
-    /* Botones Secundarios */
+    /* Botones Secundarios Glassmorphism */
     .btn-secondary {
       display: flex;
       align-items: center;
@@ -112,58 +124,57 @@
       width: 100%;
       padding: 14px;
       margin-bottom: 12px;
-      background-color: #ffffff;
-      color: #2c3e50;
+      background: rgba(255, 255, 255, 0.92);
+      color: #1e293b;
       text-decoration: none;
       font-weight: 600;
       font-size: 0.9rem;
-      border-radius: 12px;
-      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.4);
       transition: all 0.2s;
     }
 
-    /* Estilos iconos dentro de los botones */
+    /* Tamaño de Iconos */
     .btn-featured i, .btn-secondary i {
       font-size: 1.15rem;
     }
     
-    /* Colores para los iconos */
+    /* Colores personalizados para los iconos */
     .fa-star {
-      color: #fbbc04; /* amarillo estrellas */
+      color: #fbbc04;
     }
     .fa-whatsapp {
-      color: #25d366; /* verde WhatsApp */
+      color: #25d366;
     }
     .fa-location-dot {
-      color: #ea4335; /* Rojo Google Maps */
+      color: #ea4335;
     }
     .fa-instagram {
-      color: #e1306c; /* Rosado Instagram */
+      color: #e1306c;
     }
     .fa-facebook {
-      color: #1877f2; /* Azul Facebook */
+      color: #1877f2;
     }
 
-    /* Efectos al presionar */
+    /* Efectos táctiles */
     .btn-featured:active, .btn-secondary:active {
-      transform: scale(0.98);
-    }
-    .btn-secondary:hover {
-      background-color: #f8fafc;
-      border-color: #cbd5e1;
+      transform: scale(0.97);
     }
 
     /* Pie de página */
     .footer-text {
-      margin-top: 16px;
-      font-size: 0.75rem;
-      color: #64748b;
+      margin-top: 20px;
+      font-size: 0.8rem;
+      color: #cbd5e1;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
     }
   </style>
 </head>
 <body>
 
-  <!-- Video loop defondo -->
+  <!-- Video loop de fondo -->
   <video autoplay loop muted playsinline class="bg-video">
     <source src="VIDLOOP.mp4" type="video/mp4">
   </video>
@@ -172,8 +183,11 @@
   <div class="bg-overlay"></div>
 
   <div class="container">
-    <!-- Logo -->
-    <img src="logoluv.png" alt="logo clinica" class="logo-img">
+    <!-- Contenedor del Logo destacado -->
+    <div class="logo-wrapper">
+      <img src="logoluv.png" alt="logo clinica" class="logo-img">
+    </div>
+
     <h1>Luvital</h1>
     <p class="subtitle">Enfocado en la salud dental de los Tulumenses</p>
 
@@ -182,22 +196,22 @@
       <i class="fa-solid fa-star"></i> Dejar Reseña en Google
     </a>
 
-    <!-- Boton Agendar por WhatsApp -->
+    <!-- Botón Agendar por WhatsApp -->
     <a href="https://wa.me/529841873403?text=Hola,%20quisiera%20agendar%20una%20cita" target="_blank" class="btn-secondary">
       <i class="fa-brands fa-whatsapp"></i> Agendar Cita por WhatsApp
     </a>
 
-    <!-- Boton Ubicación -->
+    <!-- Botón Ubicación -->
     <a href="https://maps.app.goo.gl/9ZtXss2aP8SA1PSe9" target="_blank" class="btn-secondary">
       <i class="fa-solid fa-location-dot"></i> Cómo llegar (Google Maps)
     </a>
 
-    <!-- Boton Instagram -->
+    <!-- Botón Instagram -->
     <a href="https://www.instagram.com/luvitalconsultoriodental" target="_blank" class="btn-secondary">
       <i class="fa-brands fa-instagram"></i> Mira nuestros Tratamientos
     </a>
 
-    <!-- Boton Facebook -->
+    <!-- Botón Facebook -->
     <a href="https://www.facebook.com/share/1DivYdAotk/" target="_blank" class="btn-secondary">
       <i class="fa-brands fa-facebook"></i> Síguenos en Facebook
     </a>
